@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_625a3ff2aa1cfff6ece3229d3eb0e32c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    
+            <style>
+                #export {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    z-index: 999;
+                    background: white;
+                    color: black;
+                    padding: 6px;
+                    border-radius: 4px;
+                    font-family: 'Helvetica Neue';
+                    cursor: pointer;
+                    font-size: 12px;
+                    text-decoration: none;
+                    top: 90px;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_625a3ff2aa1cfff6ece3229d3eb0e32c" ></div>
+        
+    <a href='#' id='export'>Export</a>
+</body>
+<script>
+    
+    
+            var map_625a3ff2aa1cfff6ece3229d3eb0e32c = L.map(
+                "map_625a3ff2aa1cfff6ece3229d3eb0e32c",
+                {
+                    center: [48.8919, 2.236],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_625a3ff2aa1cfff6ece3229d3eb0e32c);
+
+            
+
+        
+    
+            var tile_layer_1a54479a5da85df27daa013be7b0f384 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_625a3ff2aa1cfff6ece3229d3eb0e32c);
+        
+    
+            var marker_cluster_e7f204015080de5f604754a8f66eebf7 = L.markerClusterGroup(
+                {}
+            );
+            map_625a3ff2aa1cfff6ece3229d3eb0e32c.addLayer(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            var marker_e067ad14bac214dcc48f382b86aeb0ef = L.marker(
+                [48.8889, 2.23531],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+        var popup_6bc9e98222db52db0c2057feac1e8d3e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_85fff2593055a365970a97e9633a7aec = $(`<div id="html_85fff2593055a365970a97e9633a7aec" style="width: 100.0%; height: 100.0%;">Tour Hekla (Site under assessment)</div>`)[0];
+            popup_6bc9e98222db52db0c2057feac1e8d3e.setContent(html_85fff2593055a365970a97e9633a7aec);
+        
+
+        marker_e067ad14bac214dcc48f382b86aeb0ef.bindPopup(popup_6bc9e98222db52db0c2057feac1e8d3e)
+        ;
+
+        
+    
+    
+            marker_e067ad14bac214dcc48f382b86aeb0ef.bindTooltip(
+                `<div>
+                     Tour Hekla – 52 Avenue du Général de Gaulle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b4ea02acf34e418f693330ccba24fd1a = L.marker(
+                [48.89278, 2.23583],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            marker_b4ea02acf34e418f693330ccba24fd1a.bindTooltip(
+                `<div>
+                     Grande Arche / Esplanade
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c46521cb5180803fe9a0927dd01e1438 = L.marker(
+                [48.88933, 2.2382],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            marker_c46521cb5180803fe9a0927dd01e1438.bindTooltip(
+                `<div>
+                     Les Quatre Temps Mall
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0ede96b805c691880be4aa183342d41 = L.marker(
+                [48.8928, 2.23948],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            marker_c0ede96b805c691880be4aa183342d41.bindTooltip(
+                `<div>
+                     CNIT La Défense
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cebaf05549b1ed50fcebce6439437812 = L.marker(
+                [48.89185, 2.23854],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            marker_cebaf05549b1ed50fcebce6439437812.bindTooltip(
+                `<div>
+                     La Défense Transit Hub
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e1d38131fceba0ef5c1f519c9e9842e5 = L.marker(
+                [48.88374, 2.237],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            marker_e1d38131fceba0ef5c1f519c9e9842e5.bindTooltip(
+                `<div>
+                     Puteaux Police Commissariat
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_db508dc0dfd1184fb62949064b49ed49 = L.marker(
+                [48.8925, 2.2418],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            var icon_495d311e2bf1859f632117e82e5efd9e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_db508dc0dfd1184fb62949064b49ed49.setIcon(icon_495d311e2bf1859f632117e82e5efd9e);
+        
+    
+            marker_db508dc0dfd1184fb62949064b49ed49.bindTooltip(
+                `<div>
+                     Climate / TotalEnergies-related protests (2023–2025)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_35388d9ea8402623471671a9646a729d = L.marker(
+                [48.891, 2.2365],
+                {}
+            ).addTo(marker_cluster_e7f204015080de5f604754a8f66eebf7);
+        
+    
+            var icon_11150764ba9842bbbed7c725c3cd37d6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "exclamation-triangle", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_35388d9ea8402623471671a9646a729d.setIcon(icon_11150764ba9842bbbed7c725c3cd37d6);
+        
+    
+            marker_35388d9ea8402623471671a9646a729d.bindTooltip(
+                `<div>
+                     Pension Reform Mass Demonstrations – Transport Impact Area (2023)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_4399b33673565448e1298c5260fab0ee = L.circle(
+                [48.8889, 2.23531],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 3}
+            ).addTo(map_625a3ff2aa1cfff6ece3229d3eb0e32c);
+        
+    
+        var popup_d2e9f3de12aa5397c8a687511ac89a0b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7140d05205f1fcc1a64eaee129977672 = $(`<div id="html_7140d05205f1fcc1a64eaee129977672" style="width: 100.0%; height: 100.0%;">500m Radius</div>`)[0];
+            popup_d2e9f3de12aa5397c8a687511ac89a0b.setContent(html_7140d05205f1fcc1a64eaee129977672);
+        
+
+        circle_4399b33673565448e1298c5260fab0ee.bindPopup(popup_d2e9f3de12aa5397c8a687511ac89a0b)
+        ;
+
+        
+    
+    
+            var circle_9f73400925eaa146bb79d6d3b2285150 = L.circle(
+                [48.8889, 2.23531],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1000, "stroke": true, "weight": 3}
+            ).addTo(map_625a3ff2aa1cfff6ece3229d3eb0e32c);
+        
+    
+        var popup_1efe3fa75839fc97424508f1ea073834 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_73b313fd7a7b9827f0f2007a720221d1 = $(`<div id="html_73b313fd7a7b9827f0f2007a720221d1" style="width: 100.0%; height: 100.0%;">1km Radius</div>`)[0];
+            popup_1efe3fa75839fc97424508f1ea073834.setContent(html_73b313fd7a7b9827f0f2007a720221d1);
+        
+
+        circle_9f73400925eaa146bb79d6d3b2285150.bindPopup(popup_1efe3fa75839fc97424508f1ea073834)
+        ;
+
+        
+    
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_625a3ff2aa1cfff6ece3229d3eb0e32c
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_40fc96a638a5ab9172422b28d44400aa = new L.Control.Draw(
+                options
+            ).addTo( map_625a3ff2aa1cfff6ece3229d3eb0e32c );
+            map_625a3ff2aa1cfff6ece3229d3eb0e32c.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_625a3ff2aa1cfff6ece3229d3eb0e32c.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+</script>
+</html>
