@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>La Défense – Civil Unrest Site Assessment</title>
+
+<style>
+html, body { width:100%; height:100%; margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; left:0; right:0; }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+/* ================= MAP SETUP ================= */
+var map = L.map('map', {
+  center: [48.8919, 2.236],
+  zoom: 15
+});
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
+
+var markers = L.markerClusterGroup();
+map.addLayer(markers);
+
+/* ================= ICONS ================= */
+function unrestIcon(color){
+  return L.AwesomeMarkers.icon({
+    icon: 'exclamation-triangle',
+    prefix: 'fa',
+    markerColor: color,
+    iconColor: 'white'
+  });
+}
+
+/* ================= CORE LOCATIONS ================= */
+L.marker([48.8889,2.23531])
+  .bindTooltip("Tour Hekla – Site under assessment",{sticky:true})
+  .addTo(markers);
+
+L.circle([48.8889,2.23531],{radius:500,color:'#3388ff',fill:false}).addTo(map);
+L.circle([48.8889,2.23531],{radius:1000,color:'#3388ff',fill:false}).addTo(map);
+
+L.marker([48.89278,2.23583]).bindTooltip("Grande Arche / Esplanade",{sticky:true}).addTo(markers);
+L.marker([48.88933,2.23820]).bindTooltip("Les Quatre Temps Mall",{sticky:true}).addTo(markers);
+L.marker([48.8928,2.23948]).bindTooltip("CNIT La Défense",{sticky:true}).addTo(markers);
+L.marker([48.89185,2.23854]).bindTooltip("La Défense Transit Hub",{sticky:true}).addTo(markers);
+L.marker([48.88374,2.237]).bindTooltip("Puteaux Police Commissariat",{sticky:true}).addTo(markers);
+
+/* ================= EXISTING UNREST ================= */
+L.marker([48.8925,2.2418],{icon:unrestIcon('red')})
+ .bindTooltip("Climate / TotalEnergies protests (2023–2025)",{sticky:true})
+ .addTo(markers);
+
+L.marker([48.8910,2.2365],{icon:unrestIcon('red')})
+ .bindTooltip("Pension Reform Mass Demonstrations (2023)",{sticky:true})
+ .addTo(markers);
+
+/* ================= ADDED UNREST EVENTS (VISIBLE) ================= */
+
+// helper
+function addUnrest(lat,lng,title,date,desc,src,color){
+  L.marker([lat,lng],{icon:unrestIcon(color)})
+   .bindTooltip(title,{sticky:true})
+   .bindPopup(
+     "<strong>"+title+"</strong><br><em>"+date+"</em><p>"+desc+
+     "</p><small>Source: <a href='"+src+"' target='_blank'>Link</a></small>"
+   )
+   .addTo(markers);
+}
+
+// Grande Arche – pension reform escalation
+addUnrest(
+  48.89295,2.23560,
+  "Pension reform protests – Euronext targeted",
+  "20 Apr 2023",
+  "Hundreds of protesters entered Euronext offices during pension reform demonstrations, disrupting business activity and transport.",
+  "https://www.defense-92.fr/manifestation/reforme-des-retraites-euronext-pris-pour-cible-par-plusieurs-centaines-de-manifestants-76183",
+  "red"
+);
+
+// Grande Arche – mobilization
+addUnrest(
+  48.89255,2.23615,
+  "Demonstration / mobilization near Grande Arche",
+  "10 Sep 2025",
+  "Local gathering linked to broader national mobilizations; significant police presence and potential access restrictions.",
+  "https://www.defense-92.fr/manifestation/mouvement-du-10-septembre-une-centaine-de-manifestants-rassemblee-au-pied-de-la-grande-arche-84827",
+  "orange"
+);
+
+// Les Quatre Temps – labor action
+addUnrest(
+  48.88955,2.23845,
+  "Labor action – retail occupation (Les Quatre Temps)",
+  "2024",
+  "CGT activists occupied retail space inside Westfield Les Quatre Temps, affecting operations and foot traffic.",
+  "https://www.defense-92.fr/manifestation/la-cgt-a-paralyse-lhypermarche-auchan-de-la-defense-ce-jeudi-85190",
+  "orange"
+);
+
+// TotalEnergies – climate action
+addUnrest(
+  48.89235,2.24210,
+  "Climate action – TotalEnergies shareholder period",
+  "24 May 2024",
+  "Greenpeace and Extinction Rebellion activists carried out direct actions near TotalEnergies-related buildings; arrests reported.",
+  "https://www.defense-92.fr/manifestation/extinction-rebellion-sen-prend-une-nouvelle-fois-au-siege-de-totalenergies-81440",
+  "red"
+);
+
+// CNIT context
+addUnrest(
+  48.89305,2.23980,
+  "Climate action – La Défense business district",
+  "2024–2025",
+  "Recurring climate protest activity during shareholder meetings; monitor planned demonstrations.",
+  "https://www.reuters.com/world/europe/greenpeace-activists-climb-up-totalenergies-hq-ahead-shareholder-meeting-2024-05-24/",
+  "red"
+);
+
+</script>
+</body>
+</html>
